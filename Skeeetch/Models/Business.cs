@@ -12,13 +12,13 @@ namespace Skeeetch.Models
         public string YelpId { get; set; }
         public string Name { get; set; }
         [JsonProperty("image_url")]
-        public string ImageUrl { get; set; }       
-        [JsonProperty("review_coun")]
+        public string ImageUrl { get; set; }
+        [JsonProperty("review_count")]
         public int ReviewCount { get; set; }
         public double Rating { get; set; }
         [JsonProperty("location")]
         public Location LocationInfo { get; set; }
-        [JsonProperty("display_phone")]
+        [JsonProperty("display_phone")]  
         public string DisplayPhone { get; set; }
 
     }
