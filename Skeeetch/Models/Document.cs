@@ -6,11 +6,10 @@ using System.Web;
 
 namespace Skeeetch.Models
 {
-    public class Review
+    public class Document
     {
         [JsonProperty("id")]
         public string YelpId { get; set; }
-        public string Text { get; set; }
-        public int Rating { get; set; }
+        public List<string> KeyPhrases { get; set; }        
     }
 }

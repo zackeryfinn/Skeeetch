@@ -13,8 +13,9 @@ namespace Skeeetch.Controllers
 
         public ActionResult Review()
         {
-            var id = yelpId;
+            //var id = yelpId;
             
+
             ViewBag.Title = "Review";
             var client = new HttpClient();
 
