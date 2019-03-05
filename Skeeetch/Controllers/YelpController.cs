@@ -11,21 +11,23 @@ namespace Skeeetch.Controllers
     public class YelpController : Controller
     {
 
-        public ActionResult Review()
+        public ActionResult Business()
         {
             //var id = yelpId;
             
 
-            ViewBag.Title = "Review";
+            ViewBag.Title = "Business Info";
             var client = new HttpClient();
-
-            var result = client.GetAsync($"https://api.yelp.com/v3/businesses/xAG4O7l-t1ubbwVAlPnDKg/reviews").Result;
-            var review = result.Content.ReadAsAsync<Review>().Result;
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer **API KEY GOES HERE**");
+            var result = client.GetAsync($"https://api.yelp.com/v3/businesses/qa70o0JbMVMQJf4fvWiZaw").Result;
+            var business = result.Content.ReadAsAsync<Business>().Result;
             
            
-            return View(review);
+            return View(business);
 
         }
+
+
 
 
             // GET: Yelp
