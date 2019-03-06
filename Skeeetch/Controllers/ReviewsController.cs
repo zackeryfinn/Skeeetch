@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
 using Skeeetch.Data;
@@ -14,6 +15,21 @@ namespace Skeeetch.Controllers
     public class ReviewsController : Controller
     {
         private SkeeetchContext db = new SkeeetchContext();
+
+
+        public ActionResult Business()
+        {
+
+            ViewBag.Title = "Business Info";
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer **API KEY GOES HERE**");
+            var result = client.GetAsync($"https://api.yelp.com/v3/businesses/{id}/reviews").Result;
+            var review = result.Content.ReadAsAsync<Review>().Result;
+
+
+            return View(review);
+
+        }
 
         // GET: Reviews
         public ActionResult Index()
