@@ -20,5 +20,7 @@ namespace Skeeetch.Data
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
+        public System.Data.Entity.DbSet<Skeeetch.Models.Review> Reviews { get; set; }
     }
 }

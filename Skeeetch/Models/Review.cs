@@ -9,6 +9,7 @@ namespace Skeeetch.Models
     public class Review
     {
         [JsonProperty("id")]
+        public int ID { get; set; }
         public string YelpId { get; set; }
         public string Text { get; set; }
         public int Rating { get; set; }
