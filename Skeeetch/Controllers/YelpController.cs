@@ -1,4 +1,5 @@
-﻿using Skeeetch.Models;
+﻿using Skeeetch.Data;
+using Skeeetch.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,12 +23,11 @@ namespace Skeeetch.Controllers
             var result = client.GetAsync($"https://api.yelp.com/v3/businesses/qa70o0JbMVMQJf4fvWiZaw").Result;
             var business = result.Content.ReadAsAsync<Business>().Result;
             
-           
             return View(business);
 
         }
 
-
+    
 
 
             // GET: Yelp

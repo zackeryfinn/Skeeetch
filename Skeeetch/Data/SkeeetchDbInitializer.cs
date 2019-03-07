@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Skeeetch.Models;
+using System.Collections.Generic;
 using System.Data.Entity;
 
 namespace Skeeetch.Data
