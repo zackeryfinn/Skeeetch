@@ -176,6 +176,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Business.cs" />
+    <Compile Include="Models\BusinessRoot.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\DocumentRoot.cs" />
     <Compile Include="Models\Keyword.cs" />

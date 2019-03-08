@@ -13,10 +13,59 @@ using System.Web.Mvc;
 using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
 
+
+
 namespace Skeeetch.Controllers
 {
     public class SearchController : Controller
     {
+        public async Task<ActionResult> BusinessSearch( /*INSERT SEARCH TERMS HERE*/)
+
+        {
+            // var search = new GetBusinesses();
+
+            ViewBag.Title = "Search Results";
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer raaudZPJ5cBD-o2GeXygnClQg5NBxz2BPcGVsWtiHEHFFjcTxw1ORVFzTASsLQaiEpAwiiwlfiwElgRZ3J_lhiFTyVwr4zH4eFCr1rUTd0go9OFFXZXTQrlSxrB6XHYx");
+
+            var result = await client.GetAsync($"https://api.yelp.com/v3/businesses/search?term=taco&location=detroit&price=1");
+            var businessResponses = result.Content.ReadAsAsync<BusinessRoot>();
+            ObjectCache cache = 
+            
+            //List<string> topThreeYelpIds = new List<string>();
+            //topThreeYelpIds.Add(businessResponses.Result.businesses.ElementAt(0).YelpId);
+            //topThreeYelpIds.Add(businessResponses.Result.businesses.ElementAt(1).YelpId);
+            //topThreeYelpIds.Add(businessResponses.Result.businesses.ElementAt(2).YelpId);
+
+
+
+
+
+            return RedirectToAction("Reviews", new { topThreeYelpIds = topThreeYelpIds });
+
+        }
+
+
+        public async Task<ActionResult> Reviews(List<string> topThreeYelpIds)
+        {
+
+           
+                for (int i = 0; i < topThreeYelpIds.Count; i++)
+                {
+
+
+                    ViewBag.Title = "Reviews";
+                    var client = new HttpClient();
+                    client.DefaultRequestHeaders.Add("Authorization", "Bearer raaudZPJ5cBD-o2GeXygnClQg5NBxz2BPcGVsWtiHEHFFjcTxw1ORVFzTASsLQaiEpAwiiwlfiwElgRZ3J_lhiFTyVwr4zH4eFCr1rUTd0go9OFFXZXTQrlSxrB6XHYx");
+                    var result = await client.GetAsync($"https://api.yelp.com/v3/businesses/{topThreeYelpIds[i]}/reviews");
+                    var businessReviews = result.Content.ReadAsAsync<ReviewRoot>();
+                }
+           
+            return View();
+
+        }
+
+
 
         public ActionResult Business()
         {
