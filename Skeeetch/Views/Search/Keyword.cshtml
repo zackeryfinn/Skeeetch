@@ -1,0 +1,34 @@
+﻿@model Skeeetch.Models.Document
+
+@{
+    ViewBag.Title = "KeywordView";
+}
+
+<h2>KeywordView</h2>
+
+<div>
+    <h4>Document</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.YelpId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YelpId)
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.KeyPhrases[0])
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.KeyPhrases[1])
+        </dd>
+        
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
