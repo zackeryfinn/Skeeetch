@@ -26,7 +26,7 @@ namespace Skeeetch.Controllers
 
             ViewBag.Title = "Search Results";
             var client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Authorization", "Bearer raaudZPJ5cBD-o2GeXygnClQg5NBxz2BPcGVsWtiHEHFFjcTxw1ORVFzTASsLQaiEpAwiiwlfiwElgRZ3J_lhiFTyVwr4zH4eFCr1rUTd0go9OFFXZXTQrlSxrB6XHYx");
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer API KEY HERE");
 
             var result = await client.GetAsync($"https://api.yelp.com/v3/businesses/search?term=taco&location=detroit&price=1");
             var businessResponses = result.Content.ReadAsAsync<BusinessRoot>();
@@ -56,7 +56,7 @@ namespace Skeeetch.Controllers
 
                     ViewBag.Title = "Reviews";
                     var client = new HttpClient();
-                    client.DefaultRequestHeaders.Add("Authorization", "Bearer raaudZPJ5cBD-o2GeXygnClQg5NBxz2BPcGVsWtiHEHFFjcTxw1ORVFzTASsLQaiEpAwiiwlfiwElgRZ3J_lhiFTyVwr4zH4eFCr1rUTd0go9OFFXZXTQrlSxrB6XHYx");
+                    client.DefaultRequestHeaders.Add("Authorization", "Bearer API KEY HERE");
                     var result = await client.GetAsync($"https://api.yelp.com/v3/businesses/{topThreeYelpIds[i]}/reviews");
                     var businessReviews = result.Content.ReadAsAsync<ReviewRoot>();
                 }
